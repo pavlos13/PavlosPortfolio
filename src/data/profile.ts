@@ -30,6 +30,9 @@ function getExperienceYearsAndMonths(): string {
   return m ? `${y} and ${m}` : y;
 }
 const experienceDuration = getExperienceYearsAndMonths();
+export const experienceYears = Math.floor(
+  (Date.now() - experienceStartDate.getTime()) / (365.25 * 24 * 60 * 60 * 1000)
+);
 
 export const profile: Profile = {
   name: "Pavlos Konstantinou",
@@ -41,7 +44,7 @@ export const profile: Profile = {
   about: `I'm based in Limassol. At Amdocs I moved to mid-level after about 18 months. Most of my time there has been development, and the last half year has been frontend work on Amdocs Experience Manager. I use SQL Server, Windows Server, and PowerShell in day-to-day work, plus Jenkins, SOAP UI, Git, Bitbucket, and Perforce. On OpenShift I apply configuration across environments and read service logs while developing — another team owns the deployments, and I am not claiming deep container internals.
 
 Outside work I invest my own money in individual stocks (not ETFs). I follow macro news daily — CPI, PPI, rates, oil — and I build simple tools to value companies (DCF, revenue, EBITDA, P/E). That is personal analysis, not a finance-analyst job. I also cook, travel, and read about health and longevity.`,
-  photo: "/profile.jpg",
+  photo: "/food.jpg",
 };
 
 export const experiences: ExperienceItem[] = [

@@ -8,8 +8,24 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Outfit", "system-ui", "sans-serif"],
-        display: ["Clash Display", "Outfit", "sans-serif"],
+        sans: ["Poppins", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+        script: ["Caveat", "cursive"],
+      },
+      colors: {
+        bg: "#06080F",
+        ink: "#E9ECF5",
+        mist: "#A6AFC4",
+        mist2: "#8891A8",
+        mist3: "#6C7590",
+        mist4: "#C3CADB",
+        hair: "#171C2C",
+        hair2: "#2A3145",
+        accent: {
+          DEFAULT: "#2FD87A",
+          hover: "#7BEBAC",
+          ink: "#04160B",
+        },
       },
       animation: {
         "fade-in": "fadeIn 0.6s ease-out forwards",

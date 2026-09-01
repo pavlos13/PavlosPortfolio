@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { SectionHeader } from "../components/SectionHeader";
+import { ArrowUpRight } from "lucide-react";
+import { IndexTab } from "../components/IndexTab";
 import type { SkillCategory } from "../types";
 
 interface SkillsProps {
@@ -9,65 +10,46 @@ interface SkillsProps {
 
 export function Skills({ skillCategories }: SkillsProps) {
   return (
-    <section
-      id="skills"
-      className="section-padding bg-white dark:bg-slate-900/30"
-      aria-labelledby="skills-heading"
-    >
-      <div className="container-wide">
-        <SectionHeader
-          title="Skills"
-          subtitle="Technical and beyond"
-          id="skills-heading"
-        />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section id="skills" className="section-padding" aria-labelledby="skills-heading">
+      <div className="container-wide grid grid-cols-1 lg:grid-cols-[96px_1fr] gap-8 lg:gap-10">
+        <IndexTab index="06" label="SKILLS" className="hidden lg:block pt-2.5" />
+        <h2 id="skills-heading" className="sr-only">
+          Skills
+        </h2>
+        <div>
           {skillCategories.map((category, index) => {
-            const cardContent = (
+            const row = (
               <>
-                <h3 className="font-semibold text-slate-900 dark:text-white mb-3">
-                  {category.name}
-                </h3>
-                {category.level != null && (
-                  <div className="mb-3 h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
-                    <motion.div
-                      className="h-full bg-emerald-500 dark:bg-emerald-400 rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${category.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: index * 0.08 }}
-                    />
-                  </div>
-                )}
-                <ul className="flex flex-wrap gap-2">
+                <div className="font-mono text-xs text-mist2 leading-loose flex items-center gap-1.5">
+                  {category.name.toUpperCase()}
+                  {category.url && <ArrowUpRight className="w-3.5 h-3.5 text-accent" aria-hidden />}
+                </div>
+                <div className="flex flex-wrap gap-2 font-mono text-[11px] text-mist4">
                   {category.items.map((item) => (
-                    <li key={item}>
-                      <span className="px-2.5 py-1 text-xs font-medium rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
-                        {item}
-                      </span>
-                    </li>
+                    <span key={item} className="border border-hair2 px-2.5 py-1.5">
+                      {item}
+                    </span>
                   ))}
-                </ul>
+                </div>
               </>
             );
-            const cardClass =
-              "bg-slate-50 dark:bg-slate-900/50 rounded-xl p-5 border border-slate-200 dark:border-slate-800 block text-left w-full " +
-              (category.url
-                ? "hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md transition-all cursor-pointer"
-                : "");
+            const rowClass = `grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-3 sm:gap-10 border-t py-6 ${
+              index === 0 ? "border-hair2" : "border-hair"
+            }`;
             return (
               <motion.div
                 key={category.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 {category.url ? (
-                  <Link to={category.url} className={cardClass} aria-label={`${category.name} – view videos`}>
-                    {cardContent}
+                  <Link to={category.url} className={`${rowClass} hover:border-hair2 group`} aria-label={`${category.name} – view videos`}>
+                    {row}
                   </Link>
                 ) : (
-                  <div className={cardClass}>{cardContent}</div>
+                  <div className={rowClass}>{row}</div>
                 )}
               </motion.div>
             );

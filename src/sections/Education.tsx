@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { GraduationCap } from "lucide-react";
-import { SectionHeader } from "../components/SectionHeader";
+import { IndexTab } from "../components/IndexTab";
 import type { EducationItem } from "../types";
 
 interface EducationProps {
@@ -9,59 +8,49 @@ interface EducationProps {
 
 export function Education({ education: educationList }: EducationProps) {
   return (
-    <section
-      id="education"
-      className="section-padding bg-slate-50 dark:bg-slate-950/50"
-      aria-labelledby="education-heading"
-    >
-      <div className="container-narrow">
-        <SectionHeader title="Education" id="education-heading" />
-        <div className="space-y-8">
+    <section id="education" className="section-padding" aria-labelledby="education-heading">
+      <div className="container-wide grid grid-cols-1 lg:grid-cols-[96px_1fr] gap-8 lg:gap-10">
+        <IndexTab index="05" label="EDUCATION" className="hidden lg:block pt-2.5" />
+        <h2 id="education-heading" className="sr-only">
+          Education
+        </h2>
+        <div>
           {educationList.map((item, index) => (
             <motion.article
               key={`${item.institution}-${item.dates}`}
-              className="bg-white dark:bg-slate-900/50 rounded-xl p-6 border border-slate-200 dark:border-slate-800"
-              initial={{ opacity: 0, y: 20 }}
+              className={`grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 sm:gap-10 border-t py-7 ${
+                index === 0 ? "border-hair2" : "border-hair"
+              }`}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
             >
-              <div className="flex gap-4">
-                <div className="shrink-0 w-12 h-12 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                  <GraduationCap className="w-6 h-6 text-emerald-600 dark:text-emerald-400" aria-hidden />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                    {item.degree}
-                  </h3>
-                  <p className="text-emerald-600 dark:text-emerald-400 font-medium mt-0.5">
-                    {item.institution}
-                  </p>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-                    {item.dates}
-                    {item.grade && ` · ${item.grade}`}
-                  </p>
-                  {item.modules && item.modules.length > 0 && (
-                    <div className="mt-4">
-                      <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                        Key modules:
-                      </p>
-                      <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">
-                        {item.modules.join(", ")}
-                      </p>
-                    </div>
-                  )}
-                  {item.projects && item.projects.length > 0 && (
-                    <ul className="mt-3 space-y-1 text-sm text-slate-600 dark:text-slate-400">
-                      {item.projects.map((proj, i) => (
-                        <li key={i} className="flex gap-2">
-                          <span className="text-emerald-500">•</span>
-                          {proj}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
+              <div className="font-mono text-xs text-mist2 leading-loose">{item.dates}</div>
+              <div>
+                <h3 className="m-0 font-semibold text-xl sm:text-2xl tracking-[-0.02em]">{item.degree}</h3>
+                <p className="mt-1.5 mb-0 font-mono text-xs uppercase text-mist2">
+                  {item.institution}
+                  {item.grade && ` · ${item.grade}`}
+                </p>
+                {item.modules && item.modules.length > 0 && (
+                  <div className="mt-4 flex flex-wrap gap-2 font-mono text-[11px] text-mist2">
+                    {item.modules.map((mod) => (
+                      <span key={mod} className="border border-hair2 px-2.5 py-1.5">
+                        {mod}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                {item.projects && item.projects.length > 0 && (
+                  <ul className="mt-4 p-0 list-none flex flex-col gap-1.5" role="list">
+                    {item.projects.map((proj, i) => (
+                      <li key={i} className="text-base leading-relaxed text-mist pl-5 border-l border-hair2">
+                        {proj}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </motion.article>
           ))}

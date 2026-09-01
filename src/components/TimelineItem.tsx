@@ -4,54 +4,51 @@ import type { ExperienceItem } from "../types";
 interface TimelineItemProps {
   item: ExperienceItem;
   index: number;
+  current?: boolean;
 }
 
-export function TimelineItem({ item, index }: TimelineItemProps) {
+export function TimelineItem({ item, index, current = false }: TimelineItemProps) {
   return (
     <motion.article
-      className="relative pl-8 sm:pl-10 pb-10 last:pb-0"
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      className={`grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 sm:gap-10 border-t ${
+        current ? "border-hair2 py-9" : "border-hair py-7"
+      }`}
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
     >
-      {/* vertical line */}
-      <span
-        className="absolute left-0 top-2 w-px h-full bg-slate-200 dark:bg-slate-700"
-        aria-hidden
-      />
-      {/* dot */}
-      <span
-        className="absolute left-0 top-2 w-3 h-3 rounded-full bg-emerald-500 dark:bg-emerald-400 -translate-x-1/2"
-        aria-hidden
-      />
-
-      <div className="bg-white dark:bg-slate-900/50 rounded-xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-emerald-200 dark:hover:border-emerald-800/50 transition-all duration-300">
-        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            {item.role}
+      <div className="font-mono text-xs text-mist2 leading-loose">
+        {item.dates}
+        {current && <div className="text-accent mt-2.5">● CURRENT</div>}
+      </div>
+      <div>
+        <div className="flex items-baseline gap-4 flex-wrap">
+          <h3 className={`m-0 font-semibold tracking-[-0.02em] ${current ? "text-2xl sm:text-[32px]" : "text-xl sm:text-2xl text-mist4"}`}>
+            {item.company}
           </h3>
-          <span className="text-sm text-slate-500 dark:text-slate-400">
-            {item.dates}
+          <span className={`font-mono text-xs uppercase ${current ? "text-mist2" : "text-mist3"}`}>
+            {item.role}
+            {item.location && ` · ${item.location}`}
           </span>
         </div>
-        <p className="text-emerald-600 dark:text-emerald-400 font-medium mt-1">
-          {item.company}
-          {item.location && ` · ${item.location}`}
-        </p>
-        <ul className="mt-4 space-y-2" role="list">
-          {item.achievements.map((achievement, i) => (
-            <li
-              key={i}
-              className="flex gap-2 text-slate-600 dark:text-slate-300 text-sm sm:text-base"
-            >
-              <span className="text-emerald-500 dark:text-emerald-400 mt-1.5 shrink-0">
-                •
-              </span>
-              <span>{achievement}</span>
-            </li>
-          ))}
-        </ul>
+        {current ? (
+          <ul className="mt-5 p-0 list-none flex flex-col gap-3.5 max-w-[780px]" role="list">
+            {item.achievements.map((achievement, i) => (
+              <li key={i} className="text-base leading-relaxed text-mist pl-5 border-l border-hair2">
+                {achievement}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <ul className="mt-3 p-0 list-none flex flex-col gap-1.5 max-w-[780px]" role="list">
+            {item.achievements.map((achievement, i) => (
+              <li key={i} className="text-base leading-relaxed text-mist2">
+                {achievement}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </motion.article>
   );

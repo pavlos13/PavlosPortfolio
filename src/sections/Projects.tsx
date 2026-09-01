@@ -1,4 +1,4 @@
-import { SectionHeader } from "../components/SectionHeader";
+import { IndexTab } from "../components/IndexTab";
 import { ProjectCard } from "../components/ProjectCard";
 import type { ProjectItem } from "../types";
 
@@ -8,20 +8,21 @@ interface ProjectsProps {
 
 export function Projects({ projects }: ProjectsProps) {
   return (
-    <section
-      id="projects"
-      className="section-padding bg-white dark:bg-slate-900/30"
-      aria-labelledby="projects-heading"
-    >
-      <div className="container-wide">
-        <SectionHeader
-          title="Projects"
-          subtitle="Selected work and academic projects"
-          id="projects-heading"
-        />
-        <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
+    <section id="projects" className="section-padding" aria-labelledby="projects-heading">
+      <div className="container-wide grid grid-cols-1 lg:grid-cols-[96px_1fr] gap-8 lg:gap-10">
+        <IndexTab index="04" label="PROJECTS" className="hidden lg:block pt-2.5" />
+        <h2 id="projects-heading" className="sr-only">
+          Projects
+        </h2>
+        <div>
           {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
+            <ProjectCard
+              key={project.title}
+              project={project}
+              index={index}
+              isFirst={index === 0}
+              isLast={index === projects.length - 1}
+            />
           ))}
         </div>
       </div>
