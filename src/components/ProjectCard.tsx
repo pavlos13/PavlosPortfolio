@@ -51,7 +51,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               Live Demo
             </a>
           )}
-          {project.githubUrl && (
+          {project.githubUrl && project.githubUrl.startsWith("http") && (
             <a
               href={project.githubUrl}
               target="_blank"

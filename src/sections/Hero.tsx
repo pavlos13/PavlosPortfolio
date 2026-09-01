@@ -48,6 +48,7 @@ export function Hero({ profile, socialLinks }: HeroProps) {
             </h1>
             <p className="mt-4 text-xl sm:text-2xl text-slate-600 dark:text-slate-400">
               {profile.title}
+              {profile.location ? ` · ${profile.location}` : ""}
             </p>
             <p className="mt-6 text-slate-600 dark:text-slate-300 text-lg max-w-xl">
               {profile.pitch}

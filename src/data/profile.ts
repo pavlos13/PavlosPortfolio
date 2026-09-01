@@ -36,8 +36,11 @@ export const profile: Profile = {
   title: "Software Developer",
   email: "pavlosrev@gmail.com",
   phone: "+357 97 732 160",
-  pitch: `Experienced Software Developer with ${experienceDuration} in the industry. I build scalable applications and deliver high-quality code in Agile environments, with a strong focus on problem-solving and continuous learning.`,
-  about: `I'm a Software Developer with ${experienceDuration} of industry experience, including work with one of the largest telecommunications companies (Amdocs). I'm skilled in scalable application development, Java, CI/CD pipelines (Jenkins), and tools like Perforce, SOAP UI, and Git. I thrive in Agile and SCRUM environments and enjoy turning complex requirements into reliable software. Beyond code, I'm passionate about learning—whether it's finance, the stock market, self-improvement, or health—through books, YouTube, and documentaries. I also love traveling and cooking.`,
+  location: "Limassol, Cyprus",
+  pitch: `Software Developer with ${experienceDuration} at Amdocs. Most of that time was building Java applications, and more recently frontend work. I follow the stock market every day, do my own valuations, and I'm looking for roles where software sits closer to markets.`,
+  about: `I'm based in Limassol. At Amdocs I moved to mid-level after about 18 months. Most of my time there has been development, and the last half year has been frontend work on Amdocs Experience Manager. I use SQL Server, Windows Server, and PowerShell in day-to-day work, plus Jenkins, SOAP UI, Git, Bitbucket, and Perforce. On OpenShift I apply configuration across environments and read service logs while developing — another team owns the deployments, and I am not claiming deep container internals.
+
+Outside work I invest my own money in individual stocks (not ETFs). I follow macro news daily — CPI, PPI, rates, oil — and I build simple tools to value companies (DCF, revenue, EBITDA, P/E). That is personal analysis, not a finance-analyst job. I also cook, travel, and read about health and longevity.`,
   photo: "/profile.jpg",
 };
 
@@ -46,13 +49,23 @@ export const experiences: ExperienceItem[] = [
     company: "Amdocs",
     role: "Software Developer",
     dates: "Sep 2021 – Present",
+    location: "Limassol, Cyprus",
+    achievements: [
+      "Promoted to mid-level after about 18 months. Most of my time has been development, with the last six months as a frontend developer on Amdocs Experience Manager.",
+      "Built and extended Java applications across several products, from requirement through design, code review, and release. Worked with Product Owners when the original request needed to change.",
+      "Built team automation: Jenkins jobs, PowerShell and custom scripts, and SOAP UI suites for regression and integration testing.",
+      "Used SQL Server daily to trace data through the system and confirm a change behaved as expected. Worked day to day on Windows Server and PowerShell.",
+      "On Red Hat OpenShift, applied configuration across environments and read service logs while developing. Deployments are owned by another team.",
+      "Helped onboard and train newcomers to the team.",
+    ],
+  },
+  {
+    company: "Cyprus National Guard",
+    role: "National Service",
+    dates: "2015 – 2017",
     location: "Cyprus",
     achievements: [
-      "Delivered high-quality code using Java, Perforce (PV4), and Jenkins within an Agile development environment, leveraging the CI/CD pipeline for efficient application deployment.",
-      "Worked on several Java-based applications, resolved numerous critical defects across development and production phases, ensuring system stability and reliability.",
-      "Designed and implemented automation solutions, including Jenkins jobs, custom automation scripts, and comprehensive SOAP UI testing workflows.",
-      "Provided live support and participated on-call rotations.",
-      "Regularly collaborated with Product Owners to align technical solutions with business needs.",
+      "Completed mandatory military service with the Cyprus National Guard.",
     ],
   },
   {
@@ -69,11 +82,25 @@ export const experiences: ExperienceItem[] = [
 
 export const projects: ProjectItem[] = [
   {
+    title: "DCF Valuation Tool",
+    description:
+      "Personal valuation worksheet for any ticker: live price, EPS, revenue, and EBITDA, then a year-by-year projection with growth, target P/E, and discounted fair value. Used it on names like HIMS, including 2030 revenue/EBITDA paths versus management targets.",
+    techStack: ["HTML", "JavaScript", "Python", "Yahoo Finance"],
+    dates: "Jul 2026",
+  },
+  {
+    title: "HIMS Post-Selloff Analysis",
+    description:
+      "Wrote up a post-selloff note on Hims & Hers: current valuation, margins, growth assumptions, and what would have to be true for the 2030 targets. Personal research, not a professional research report.",
+    techStack: ["Valuation", "DCF", "Equity research notes"],
+    dates: "Jul 2026",
+  },
+  {
     title: "Stock Market Tool",
     description:
-      "A tool with key revenue metrics and latest news for any company or the general economy. Save and sort news by company or general economy. Built with React, Cursor, and vibe coding.",
-    techStack: ["React", "Cursor", "Vibe coding"],
-    dates: "Mar 5, 2026",
+      "A React tool for key metrics and latest news on a company or the general economy. Save and sort news by company or macro. Built with React and Cursor.",
+    techStack: ["React", "Cursor"],
+    dates: "Mar 2026",
     githubUrl: "https://github.com/pavlos13/pavlosStockTracker",
   },
   {
@@ -81,16 +108,14 @@ export const projects: ProjectItem[] = [
     description:
       "Designed and implemented a system that tracks the geolocation of ships using AIS (Global Ship Tracking Intelligence), runs algorithms in the background to predict potential crashes, and sends warnings if a ship enters forbidden areas.",
     techStack: ["Laravel", "PHP", "HTML", "Bootstrap", "Algorithms"],
-    dates: "1 Jan 2021",
-    githubUrl: "#",
+    dates: "2021",
   },
   {
     title: "University Calendar & Event Scheduling Website",
     description:
       "Design and implementation of a Calendar and Event Scheduling website for the university, built as part of the Computer Science degree.",
     techStack: ["PHP", "HTML", "Bootstrap", "JavaScript"],
-    dates: "1 Jan 2021",
-    githubUrl: "#",
+    dates: "2021",
   },
 ];
 
@@ -118,17 +143,30 @@ export const education: EducationItem[] = [
 export const skillCategories: SkillCategory[] = [
   {
     name: "Languages & Core",
-    items: ["Java", "PHP", "JavaScript", "HTML", "CSS"],
+    items: ["Java", "SQL (SQL Server)", "PowerShell", "PHP", "JavaScript", "HTML", "CSS"],
     level: 100,
   },
   {
     name: "Tools & DevOps",
-    items: ["Jenkins", "Perforce (PV4)", "Git", "SOAP UI", "Visual Studio Code", "Eclipse", "Cursor", "Vibe coding"],
+    items: [
+      "Jenkins",
+      "SOAP UI",
+      "Git",
+      "Bitbucket",
+      "Perforce (P4)",
+      "Cursor and MCP",
+      "Windows Server",
+      "SQL Server",
+      "Red Hat OpenShift (logs & config)",
+      "Figma",
+      "Visual Studio Code",
+      "Eclipse",
+    ],
     level: 100,
   },
   {
     name: "Frameworks & Libraries",
-    items: ["Laravel", "Bootstrap", "OOP"],
+    items: ["Laravel", "Bootstrap", "Amdocs Experience Manager", "React", "OOP"],
     level: 100,
   },
   {
@@ -144,12 +182,19 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     name: "Economy & Markets",
-    items: ["Economy", "Stock market", "Macroeconomy", "Microeconomy"],
+    items: [
+      "Individual stocks (own capital)",
+      "Daily macro news (CPI, PPI, rates, oil)",
+      "Company valuation & DCF",
+      "Revenue, EBITDA, P/E",
+      "TradingView",
+      "MetaTrader 4/5 (study, not job experience)",
+    ],
     level: 100,
   },
   {
     name: "Speaking languages",
-    items: ["Greek", "English"],
+    items: ["Greek (native)", "English (fluent)"],
     level: 100,
   },
   {
@@ -160,7 +205,11 @@ export const skillCategories: SkillCategory[] = [
 ];
 
 export const certifications: CertificationItem[] = [
-  // Add any certifications here when you have them
+  {
+    name: "Certified Professional – DevOps Foundation (CP-DOF)",
+    issuer: "Agile Testing Alliance",
+    date: "2023",
+  },
 ];
 
 export const socialLinks: SocialLink[] = [

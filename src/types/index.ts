@@ -3,6 +3,7 @@ export interface Profile {
   title: string;
   email: string;
   phone: string;
+  location?: string;
   pitch: string;
   about: string;
   photo: string;

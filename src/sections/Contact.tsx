@@ -42,7 +42,7 @@ export function Contact({ profile, socialLinks }: ContactProps) {
             Get in touch
           </h2>
           <p className="mt-4 text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
-            I'm open to new opportunities and happy to chat. Reach out via email, phone, or socials.
+            I'm in Limassol and open to roles that mix software with markets. Reach out via email, phone, or socials.
           </p>
         </motion.div>
 
