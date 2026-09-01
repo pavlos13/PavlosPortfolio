@@ -32,7 +32,7 @@ export function Contact({ profile, socialLinks }: ContactProps) {
     >
       <div className="container-wide grid grid-cols-1 lg:grid-cols-[96px_1fr_420px] gap-8 lg:gap-10 lg:items-end">
         <IndexTab index="08" label="CONTACT" className="hidden lg:block" />
-        <div>
+        <div data-reveal>
           <h2 id="contact-heading" className="font-mono text-xs tracking-[0.1em] text-mist3 mb-5">
             AVAILABLE FOR ROLES WHERE SOFTWARE SITS CLOSER TO MARKETS
           </h2>
@@ -43,7 +43,7 @@ export function Contact({ profile, socialLinks }: ContactProps) {
             {profile.email}
           </a>
         </div>
-        <div className="font-mono text-xs text-mist2 flex flex-col items-start lg:items-center gap-[18px] mt-8 lg:mt-0">
+        <div data-reveal data-reveal-delay="0.12" className="font-mono text-xs text-mist2 flex flex-col items-start lg:items-center gap-[18px] mt-8 lg:mt-0">
           <div className="flex gap-3">
             {socialLinks
               .filter((l) => l.icon !== "Mail" && l.icon !== "Phone")

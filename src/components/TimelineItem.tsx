@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import type { ExperienceItem } from "../types";
 
 interface TimelineItemProps {
@@ -9,14 +8,12 @@ interface TimelineItemProps {
 
 export function TimelineItem({ item, index, current = false }: TimelineItemProps) {
   return (
-    <motion.article
+    <article
+      data-reveal
+      data-reveal-delay={String(index * 0.08)}
       className={`grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 sm:gap-10 border-t ${
         current ? "border-hair2 py-9" : "border-hair py-7"
       }`}
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
     >
       <div className="font-mono text-xs text-mist2 leading-loose">
         {item.dates}
@@ -50,6 +47,6 @@ export function TimelineItem({ item, index, current = false }: TimelineItemProps
           </ul>
         )}
       </div>
-    </motion.article>
+    </article>
   );
 }

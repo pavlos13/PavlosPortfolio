@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { IndexTab } from "../components/IndexTab";
 import type { CertificationItem } from "../types";
 
@@ -34,13 +33,7 @@ export function Certifications({ certifications }: CertificationsProps) {
               </>
             );
             return (
-              <motion.div
-                key={cert.name}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-              >
+              <div key={cert.name} data-reveal data-reveal-delay={String(index * 0.08)}>
                 {cert.url ? (
                   <a href={cert.url} target="_blank" rel="noopener noreferrer" className={rowClass}>
                     {body}
@@ -48,7 +41,7 @@ export function Certifications({ certifications }: CertificationsProps) {
                 ) : (
                   <div className={rowClass}>{body}</div>
                 )}
-              </motion.div>
+              </div>
             );
           })}
         </div>

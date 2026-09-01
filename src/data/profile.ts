@@ -45,6 +45,7 @@ export const profile: Profile = {
 
 Outside work I invest my own money in individual stocks (not ETFs). I follow macro news daily — CPI, PPI, rates, oil — and I build simple tools to value companies (DCF, revenue, EBITDA, P/E). That is personal analysis, not a finance-analyst job. I also cook, travel, and read about health and longevity.`,
   photo: "/food.jpg",
+  resumeUrl: "/Pavlos_Konstantinou.pdf",
 };
 
 export const experiences: ExperienceItem[] = [

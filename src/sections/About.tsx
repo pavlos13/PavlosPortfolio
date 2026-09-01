@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { IndexTab } from "../components/IndexTab";
 import { certifications } from "../data/profile";
 
@@ -28,13 +27,7 @@ export function About({ about }: AboutProps) {
       <div className="container-wide grid grid-cols-1 lg:grid-cols-[96px_1fr_420px] gap-8 lg:gap-10 items-start">
         <IndexTab index="02" label="ABOUT" className="hidden lg:block pt-2.5" />
 
-        <motion.div
-          className="border-t border-hair pt-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
-        >
+        <div data-reveal className="border-t border-hair pt-8">
           <h2 id="about-heading" className="m-0 mb-7 font-semibold text-3xl sm:text-[40px] tracking-[-0.02em]">
             Software by day, valuations by night
           </h2>
@@ -43,15 +36,9 @@ export function About({ about }: AboutProps) {
               {p}
             </p>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="border-t border-hair pt-8 font-mono text-xs text-mist2"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
+        <div data-reveal data-reveal-delay="0.1" className="border-t border-hair pt-8 font-mono text-xs text-mist2">
           <div className="tracking-[0.1em] text-mist3 mb-[18px]">STACK</div>
           <div className="flex flex-wrap gap-2">
             {STACK_HIGHLIGHTS.map((tag) => (
@@ -73,7 +60,7 @@ export function About({ about }: AboutProps) {
               </div>
             </>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

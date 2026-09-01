@@ -11,6 +11,8 @@ import { Skills } from "./sections/Skills";
 import { Certifications } from "./sections/Certifications";
 import { Contact } from "./sections/Contact";
 import { CookingPage } from "./pages/CookingPage";
+import { ScrollToTop } from "./components/ScrollToTop";
+import { useGsapReveals } from "./hooks/useGsapReveals";
 import {
   profile,
   experiences,
@@ -22,6 +24,8 @@ import {
 } from "./data/profile";
 
 function App() {
+  useGsapReveals();
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -47,6 +51,7 @@ function App() {
         </Routes>
       </main>
       <Footer name={profile.name} />
+      <ScrollToTop />
     </div>
   );
 }

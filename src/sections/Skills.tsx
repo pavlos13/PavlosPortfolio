@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { IndexTab } from "../components/IndexTab";
@@ -37,13 +36,7 @@ export function Skills({ skillCategories }: SkillsProps) {
               index === 0 ? "border-hair2" : "border-hair"
             }`;
             return (
-              <motion.div
-                key={category.name}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-              >
+              <div key={category.name} data-reveal data-reveal-delay={String(index * 0.05)}>
                 {category.url ? (
                   <Link to={category.url} className={`${rowClass} hover:border-hair2 group`} aria-label={`${category.name} – view videos`}>
                     {row}
@@ -51,7 +44,7 @@ export function Skills({ skillCategories }: SkillsProps) {
                 ) : (
                   <div className={rowClass}>{row}</div>
                 )}
-              </motion.div>
+              </div>
             );
           })}
         </div>

@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { IndexTab } from "../components/IndexTab";
 import type { EducationItem } from "../types";
 
@@ -16,15 +15,13 @@ export function Education({ education: educationList }: EducationProps) {
         </h2>
         <div>
           {educationList.map((item, index) => (
-            <motion.article
+            <article
               key={`${item.institution}-${item.dates}`}
+              data-reveal
+              data-reveal-delay={String(index * 0.08)}
               className={`grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-4 sm:gap-10 border-t py-7 ${
                 index === 0 ? "border-hair2" : "border-hair"
               }`}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
             >
               <div className="font-mono text-xs text-mist2 leading-loose">{item.dates}</div>
               <div>
@@ -52,7 +49,7 @@ export function Education({ education: educationList }: EducationProps) {
                   </ul>
                 )}
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>

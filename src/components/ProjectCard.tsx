@@ -1,5 +1,4 @@
 import { ExternalLink, Github } from "lucide-react";
-import { motion } from "framer-motion";
 import type { ProjectItem } from "../types";
 
 interface ProjectCardProps {
@@ -13,14 +12,12 @@ export function ProjectCard({ project, index, isFirst, isLast }: ProjectCardProp
   const num = String(index + 1).padStart(2, "0");
 
   return (
-    <motion.article
+    <article
+      data-reveal
+      data-reveal-delay={String(index * 0.06)}
       className={`grid grid-cols-1 sm:grid-cols-[60px_1fr] lg:grid-cols-[60px_1fr_240px] gap-3 lg:gap-8 items-start border-t py-7 ${
         isFirst ? "border-hair2" : "border-hair"
       } ${isLast ? "border-b border-hair" : ""}`}
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.4, delay: index * 0.06 }}
     >
       <div className={`font-mono text-xs ${isFirst ? "text-accent" : "text-mist3"}`}>/{num}</div>
       <div>
@@ -47,6 +44,6 @@ export function ProjectCard({ project, index, isFirst, isLast }: ProjectCardProp
           </a>
         )}
       </div>
-    </motion.article>
+    </article>
   );
 }
