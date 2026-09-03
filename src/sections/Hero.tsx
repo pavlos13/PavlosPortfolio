@@ -208,7 +208,7 @@ export function Hero({ profile }: HeroProps) {
             </div>
             <div data-hero-stat className="bg-bg p-4">
               <div className="text-[10px] tracking-[0.1em] text-mist3">FOCUS</div>
-              <div className="text-[22px] mt-1.5">JAVA/FE</div>
+              <div className="text-[22px] mt-1.5">JAVA</div>
             </div>
             <div data-hero-stat className="bg-bg p-4">
               <div className="text-[10px] tracking-[0.1em] text-mist3">SIDE</div>

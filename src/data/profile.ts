@@ -40,8 +40,8 @@ export const profile: Profile = {
   email: "pavlosrev@gmail.com",
   phone: "+357 97 732 160",
   location: "Limassol, Cyprus",
-  pitch: `Software Developer with ${experienceDuration} at Amdocs. Most of that time was building Java applications, and more recently frontend work. I follow the stock market every day, do my own valuations, and I'm looking for roles where software sits closer to markets.`,
-  about: `I'm based in Limassol. At Amdocs I moved to mid-level after about 18 months. Most of my time there has been development, and the last half year has been frontend work on Amdocs Experience Manager. I use SQL Server, Windows Server, and PowerShell in day-to-day work, plus Jenkins, SOAP UI, Git, Bitbucket, and Perforce. On OpenShift I apply configuration across environments and read service logs while developing — another team owns the deployments, and I am not claiming deep container internals.
+  pitch: `Software Developer with ${experienceDuration} at Amdocs. Most of that time was building Java applications, and more recently frontend work. I follow the stock market every day and do my own valuations. I'm open to moving beyond day-to-day development — looking for something different and a fresh challenge.`,
+  about: `I build software by day and follow the markets in my own time. I'm based in Limassol and open to work that takes me beyond pure development — a new challenge and a different direction.
 
 Outside work I invest my own money in individual stocks (not ETFs). I follow macro news daily — CPI, PPI, rates, oil — and I build simple tools to value companies (DCF, revenue, EBITDA, P/E). That is personal analysis, not a finance-analyst job. I also cook, travel, and read about health and longevity.`,
   photo: "/food.jpg",
@@ -55,10 +55,9 @@ export const experiences: ExperienceItem[] = [
     dates: "Sep 2021 – Present",
     location: "Limassol, Cyprus",
     achievements: [
-      "Promoted to mid-level after about 18 months. Most of my time has been development, with the last six months as a frontend developer on Amdocs Experience Manager.",
-      "Built and extended Java applications across several products, from requirement through design, code review, and release. Worked with Product Owners when the original request needed to change.",
-      "Built team automation: Jenkins jobs, PowerShell and custom scripts, and SOAP UI suites for regression and integration testing.",
-      "Used SQL Server daily to trace data through the system and confirm a change behaved as expected. Worked day to day on Windows Server and PowerShell.",
+      "Promoted to mid-level after about 18 months. Last six months on Amdocs Experience Manager (frontend); before that, Java applications across several products from requirement through release.",
+      "Worked with Product Owners when scope needed to change; built Jenkins jobs, PowerShell scripts, and SOAP UI suites for regression and integration testing.",
+      "Used SQL Server daily to trace data and validate changes. Day-to-day on Windows Server and PowerShell.",
       "On Red Hat OpenShift, applied configuration across environments and read service logs while developing. Deployments are owned by another team.",
       "Helped onboard and train newcomers to the team.",
     ],

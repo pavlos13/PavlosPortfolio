@@ -8,7 +8,7 @@ const TICKER_ITEMS: { label: string; accent?: boolean }[] = [
   { label: "DCF · EBITDA · P/E" },
   { label: "MACRO: CPI PPI RATES OIL" },
   { label: "OPEN TO ROLES" },
-  { label: "SOFTWARE × MARKETS" },
+  { label: "NEW CHALLENGE" },
 ];
 
 function TickerRow({ copy }: { copy: number }) {

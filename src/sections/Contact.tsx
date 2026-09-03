@@ -34,7 +34,7 @@ export function Contact({ profile, socialLinks }: ContactProps) {
         <IndexTab index="08" label="CONTACT" className="hidden lg:block" />
         <div data-reveal>
           <h2 id="contact-heading" className="font-mono text-xs tracking-[0.1em] text-mist3 mb-5">
-            AVAILABLE FOR ROLES WHERE SOFTWARE SITS CLOSER TO MARKETS
+            OPEN TO SOMETHING BEYOND DEVELOPMENT
           </h2>
           <a
             href={`mailto:${profile.email}`}
