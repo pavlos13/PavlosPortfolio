@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "fetch-cooking-videos": "node scripts/fetch-youtube-videos.js"
+    "fetch-cooking-videos": "node scripts/fetch-youtube-videos.js",
+    "sync-cooking-videos": "node scripts/fetch-youtube-rss.js"
   },
   "dependencies": {
     "framer-motion": "^12.0.0",

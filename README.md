@@ -66,3 +66,9 @@ Clicking the **Cooking** skill card goes to `/cooking`, which lists all videos f
    npm run fetch-cooking-videos
    ```
    This writes `public/cooking-videos.json`. Commit that file; the site will load it and show all videos without using the API key in the browser.
+
+3. **Static list without any API key**  
+   ```bash
+   npm run sync-cooking-videos
+   ```
+   Reads the channel RSS feed and merges new uploads into `public/cooking-videos.json`, keeping older entries. The feed only exposes the 15 most recent uploads, so run this regularly (or use option 2 for a full backfill).
