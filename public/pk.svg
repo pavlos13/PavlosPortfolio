@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect x="1.25" y="1.25" width="29.5" height="29.5" rx="7" fill="#06080F" stroke="#2FD87A" stroke-width="1.5"/>
+  <text
+    x="16"
+    y="21.5"
+    text-anchor="middle"
+    font-family="Poppins, system-ui, sans-serif"
+    font-size="12"
+    font-weight="600"
+    letter-spacing="0.4"
+    fill="#E9ECF5"
+  >PK</text>
+</svg>
