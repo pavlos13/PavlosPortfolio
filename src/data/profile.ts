@@ -10,40 +10,21 @@ import type {
 
 // Experience calculated from Sep 2021 (Amdocs start) to today
 const experienceStartDate = new Date(2021, 8, 1); // 1 September 2021
-function getExperienceYearsAndMonths(): string {
-  const now = new Date();
-  let years = now.getFullYear() - experienceStartDate.getFullYear();
-  let months = now.getMonth() - experienceStartDate.getMonth();
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
-  if (now.getDate() < experienceStartDate.getDate()) {
-    months--;
-    if (months < 0) {
-      years--;
-      months += 12;
-    }
-  }
-  const y = years === 1 ? "1 year" : `${years} years`;
-  const m = months === 1 ? "1 month" : months === 0 ? "" : `${months} months`;
-  return m ? `${y} and ${m}` : y;
-}
-const experienceDuration = getExperienceYearsAndMonths();
+
 export const experienceYears = Math.floor(
   (Date.now() - experienceStartDate.getTime()) / (365.25 * 24 * 60 * 60 * 1000)
 );
 
 export const profile: Profile = {
   name: "Pavlos Konstantinou",
-  title: "Software Developer",
+  title: "AI Developer / AI Engineer | Java Software Developer",
   email: "pavlosrev@gmail.com",
   phone: "+357 97 732 160",
   location: "Limassol, Cyprus",
-  pitch: `Software Developer with ${experienceDuration} at Amdocs. Most of that time was building Java applications, and more recently frontend work. I follow the stock market every day and do my own valuations. I'm open to moving beyond day-to-day development — looking for something different and a fresh challenge.`,
-  about: `I build software by day and follow the markets in my own time. I'm based in Limassol and open to work that takes me beyond pure development — a new challenge and a different direction.
+  pitch: `Java software developer with ~5 years at Amdocs, building new functionality and fixing defects on live telecom order-management systems used by some of the world's largest operators. Uses AI-assisted development daily with Cursor and MCP integrations. Recently completed courses in Claude Code, coding agents, AI workflow automations in n8n, and generative/agentic AI. Looking to build AI-powered products and developer tooling.`,
+  about: `Java software developer with ~5 years at Amdocs, building new functionality and fixing defects on live telecom order-management systems. Owns issues from diagnosis through fix and verification, backed by SQL work on production data, REST/SOAP integrations and automated regression suites. Uses AI-assisted development daily with Cursor and critically reviews model output for subtle errors.
 
-Outside work I invest my own money in individual stocks (not ETFs). I follow macro news daily — CPI, PPI, rates, oil — and I build simple tools to value companies (DCF, revenue, EBITDA, P/E). That is personal analysis, not a finance-analyst job. I also cook, travel, and read about health and longevity.`,
+Interested in stock markets and trading (personal investing, follow macro news daily), health and longevity, cooking, and travel.`,
   photo: "/food.jpg",
   resumeUrl: "/Pavlos_Konstantinou.pdf",
 };
@@ -51,39 +32,30 @@ Outside work I invest my own money in individual stocks (not ETFs). I follow mac
 export const experiences: ExperienceItem[] = [
   {
     company: "Amdocs",
-    role: "Software Developer",
+    role: "Software Developer (Mid-Level)",
     dates: "Sep 2021 – Present",
     location: "Limassol, Cyprus",
     achievements: [
-      "Promoted to mid-level after about 18 months. Last six months on Amdocs Experience Manager (frontend); before that, Java applications across several products from requirement through release.",
-      "Worked with Product Owners when scope needed to change; built Jenkins jobs, PowerShell scripts, and SOAP UI suites for regression and integration testing.",
-      "Used SQL Server daily to trace data and validate changes. Day-to-day on Windows Server and PowerShell.",
-      "On Red Hat OpenShift, applied configuration across environments and read service logs while developing. Deployments are owned by another team.",
-      "Helped onboard and train newcomers to the team.",
-    ],
-  },
-  {
-    company: "Cyprus National Guard",
-    role: "National Service",
-    dates: "2015 – 2017",
-    location: "Cyprus",
-    achievements: [
-      "Completed mandatory military service with the Cyprus National Guard.",
-    ],
-  },
-  {
-    company: "Adelphoi Konstantinou & Dimitriou",
-    role: "Construction Work (summer part-time)",
-    dates: "2014 – 2021",
-    location: "Cyprus",
-    achievements: [
-      "Collaborated with diverse teams to coordinate tasks, solve problems, and ensure project milestones.",
-      "Adapted quickly to new challenges by learning and applying construction techniques efficiently, showcasing problem-solving abilities and a willingness to learn.",
+      "Java development (primary): Deliver new functionality across the ordering flow and fix defects that only appear once an operator is live; own work from diagnosis through fix and verification.",
+      "Domain depth: Understand how an order moves through operator systems, its states and common failure points (stalls between systems, wrong routing, stuck states).",
+      "Data & SQL: Write SQL Server queries against production data to trace record history, confirm fixes, reconcile discrepancies between systems and produce reports for non-technical departments; automated recurring hand-built reports.",
+      "Integration & testing: Work with REST and SOAP APIs; build and maintain SOAP UI regression/integration suites.",
+      "Delivery automation (secondary): Build and maintain Jenkins jobs and release scripts; take changes into production in scheduled windows (prepare, test, deploy, verify, record).",
+      "Live-system support (secondary): Handle L2/L3 tickets from other departments, most traced to code and fixed directly; tracked end-to-end in Jira.",
+      "Environments: Configure and monitor services on Windows Server, Linux and Red Hat OpenShift (RHOCP) / Kubernetes / containers across dev, test and production.",
+      "Team: Wrote team procedures and documentation and trained new joiners. Promoted to mid-level after ~1.5 years.",
     ],
   },
 ];
 
 export const projects: ProjectItem[] = [
+  {
+    title: "AI Tools in Daily Work",
+    description:
+      "Use Cursor with MCP integrations wired to real systems and data sources on actual work. Critically read model output for subtle errors. Daily practice in AI-assisted development with real production systems.",
+    techStack: ["Cursor", "MCP", "Claude", "AI Agents"],
+    dates: "Ongoing",
+  },
   {
     title: "DCF Valuation Tool",
     description:
@@ -109,15 +81,8 @@ export const projects: ProjectItem[] = [
   {
     title: "AIS Ship Tracking & Collision Prediction System",
     description:
-      "Designed and implemented a system that tracks the geolocation of ships using AIS (Global Ship Tracking Intelligence), runs algorithms in the background to predict potential crashes, and sends warnings if a ship enters forbidden areas.",
+      "Designed and implemented a system that tracks the geolocation of ships using AIS (Global Ship Tracking Intelligence), runs algorithms in the background to predict potential crashes, and sends warnings if a ship enters forbidden areas. Final-year university project.",
     techStack: ["Laravel", "PHP", "HTML", "Bootstrap", "Algorithms"],
-    dates: "2021",
-  },
-  {
-    title: "University Calendar & Event Scheduling Website",
-    description:
-      "Design and implementation of a Calendar and Event Scheduling website for the university, built as part of the Computer Science degree.",
-    techStack: ["PHP", "HTML", "Bootstrap", "JavaScript"],
     dates: "2021",
   },
 ];
@@ -145,36 +110,38 @@ export const education: EducationItem[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    name: "Languages & Core",
-    items: ["Java", "SQL (SQL Server)", "PowerShell", "PHP", "JavaScript", "HTML", "CSS"],
+    name: "Development",
+    items: ["Java", "Defect diagnosis and fixes", "Git", "Bitbucket", "PowerShell"],
     level: 100,
   },
   {
-    name: "Tools & DevOps",
-    items: [
-      "Jenkins",
-      "SOAP UI",
-      "Git",
-      "Bitbucket",
-      "Perforce (P4)",
-      "Cursor and MCP",
-      "Windows Server",
-      "SQL Server",
-      "Red Hat OpenShift (logs & config)",
-      "Figma",
-      "Visual Studio Code",
-      "Eclipse",
-    ],
+    name: "AI-Assisted Development",
+    items: ["Cursor (daily)", "MCP tool integrations", "Coding agents (Claude Code)", "Reviewing/evaluating LLM output"],
     level: 100,
   },
   {
-    name: "Frameworks & Libraries",
-    items: ["Laravel", "Bootstrap", "Amdocs Experience Manager", "React", "OOP"],
+    name: "Agents & Automation",
+    items: ["Agent workflows", "Voice agents in n8n", "Workflow automations", "Generative & agentic AI concepts"],
     level: 100,
   },
   {
-    name: "Methodologies",
-    items: ["Agile", "SCRUM", "CI/CD"],
+    name: "Data",
+    items: ["SQL Server production queries", "Reconciliation", "Reporting", "Excel"],
+    level: 100,
+  },
+  {
+    name: "APIs & Testing",
+    items: ["REST", "SOAP", "SOAP UI regression/integration suites", "Acceptance-criteria checks"],
+    level: 100,
+  },
+  {
+    name: "DevOps & Systems",
+    items: ["Jenkins", "Release scripts", "Linux", "Windows Server", "OpenShift (RHOCP)", "Kubernetes", "Docker", "Containers"],
+    level: 100,
+  },
+  {
+    name: "Process",
+    items: ["Jira", "Root-cause analysis", "Documentation", "Training joiners"],
     level: 100,
   },
   {
@@ -184,25 +151,24 @@ export const skillCategories: SkillCategory[] = [
     url: "/cooking",
   },
   {
-    name: "Economy & Markets",
+    name: "Stock Markets & Trading",
     items: [
-      "Individual stocks (own capital)",
-      "Daily macro news (CPI, PPI, rates, oil)",
+      "Personal investing",
+      "Macro news (CPI, PPI, rates, oil)",
       "Company valuation & DCF",
-      "Revenue, EBITDA, P/E",
+      "Revenue, EBITDA, P/E analysis",
       "TradingView",
-      "MetaTrader 4/5 (study, not job experience)",
     ],
     level: 100,
   },
   {
-    name: "Speaking languages",
+    name: "Speaking Languages",
     items: ["Greek (native)", "English (fluent)"],
     level: 100,
   },
   {
-    name: "Health",
-    items: ["Health", "Low carb diets", "Hormones", "Vitamins"],
+    name: "Health & Longevity",
+    items: ["Nutrition", "Low carb diets", "Hormones", "Vitamins"],
     level: 100,
   },
 ];
@@ -212,6 +178,24 @@ export const certifications: CertificationItem[] = [
     name: "Certified Professional – DevOps Foundation (CP-DOF)",
     issuer: "Agile Testing Alliance",
     date: "2023",
+  },
+  {
+    name: "AI Coder: Complete Claude Code & Coding Agents Course",
+    issuer: "Udemy (Ligency, Ed Donner)",
+    date: "Oct 2026",
+    url: "https://ude.my/UC-10da2afb-f224-4a80-945f-c914cfbf3914",
+  },
+  {
+    name: "AI Builder: Create Agents, Voice Agents & Automations in n8n",
+    issuer: "Udemy",
+    date: "Sept 2026",
+    url: "https://ude.my/UC-5fbc3341-9cc1-48bb-80c8-2ca098913892",
+  },
+  {
+    name: "AI Leader: Generative AI & Agentic AI for Leaders & Founders",
+    issuer: "Udemy",
+    date: "Oct 2026",
+    url: "https://ude.my/UC-da160d7b-9a65-4783-9e83-a18a665c574d",
   },
 ];
 
