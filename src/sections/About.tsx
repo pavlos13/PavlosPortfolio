@@ -5,13 +5,13 @@ const STACK_HIGHLIGHTS = [
   "Java",
   "SQL Server",
   "PowerShell",
-  "React",
+  "Cursor & MCP",
+  "AI Agents",
+  "n8n",
   "Jenkins",
   "SOAP UI",
   "Git",
   "OpenShift",
-  "Laravel",
-  "Agile / CI-CD",
 ];
 
 interface AboutProps {
@@ -29,7 +29,7 @@ export function About({ about }: AboutProps) {
 
         <div data-reveal className="border-t border-hair pt-8">
           <h2 id="about-heading" className="m-0 mb-7 font-semibold text-3xl sm:text-[40px] tracking-[-0.02em]">
-            Software by day, valuations by night
+            Java + AI: Building systems by day, exploring markets in my time
           </h2>
           {paragraphs.map((p, i) => (
             <p key={i} className="m-0 mb-5 last:mb-0 max-w-[680px] text-[17px] leading-[1.75] text-mist" style={{ textWrap: "pretty" }}>
